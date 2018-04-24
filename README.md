@@ -7,7 +7,7 @@ class Person(Docma):
     """
     name: str
     age: int
-    is_happy: boolean [default: True]
+    is_happy: boolean
     """
     
     def do_stuff():
@@ -19,7 +19,7 @@ class Person(Docma):
 Raise: ValueError ('age' must be a valid int)
 >>> me.age = 20
 >>> print(me.is_happy)
-True
+False
 
 >>> you = Person.from_dict({'name': 'Owasu Pokuti', 'age': '67', 'is_happy': True})
 Raise: ValueError('age' msut be a valid int)
