@@ -16,6 +16,7 @@ def test_simple():
 
     t1 = TestSimple()
     t1.field1 = "foo"
+    t1.field4 = "unknown"
     assert t1.field1 == "foo"
 
     with raises(AttributeError):
@@ -55,7 +56,8 @@ def test_default():
     class TestSimple(Docma):
         """
         field1: str
-        field2: int [10]
+        field2: int
+            default: 10
         field3: boolean
         """
         pass
@@ -72,8 +74,10 @@ def test_default():
 def test_custom_validator():
     class TestSimple(Docma):
         """
-        field1: str ([a-z]+)
-        field2: int [10]
+        field1: str
+            validator: [a-z]+
+        field2: int
+            default: 10
         field3: boolean
         """
         pass
@@ -93,8 +97,10 @@ def test_custom_validator():
 def test_list_validator():
     class TestSimple(Docma):
         """
-        field1: list(str) ([a-z]+)
-        field2: list(int) [[10]]
+        field1: list(str)
+            validator: [a-z]+
+        field2: list(int)
+            default: [10]
         field3: list(boolean)
         """
         pass
@@ -114,8 +120,10 @@ def test_list_validator():
 def test_custom_types():
     class TestSimple(Docma):
         """
-        field1: str ([a-z]+)
-        field2: int [10]
+        field1: str
+            validator: [a-z]+
+        field2: int
+            default: 10
         field3: boolean
         """
         pass
