@@ -49,3 +49,89 @@ def test_from_dict():
     assert t1.field2 == 12
 
     assert t1.field3
+
+
+def test_default():
+    class TestSimple(Docma):
+        """
+        field1: str
+        field2: int [10]
+        field3: boolean
+        """
+        pass
+
+    t1 = TestSimple()
+    t1.field1 = "foo"
+    t1.field3 = True
+
+    assert t1.field1 == "foo"
+    assert t1.field2 == 10
+    assert t1.field3
+
+
+def test_custom_validator():
+    class TestSimple(Docma):
+        """
+        field1: str ([a-z]+)
+        field2: int [10]
+        field3: boolean
+        """
+        pass
+
+    t1 = TestSimple()
+    t1.field3 = True
+
+    with raises(AttributeError):
+        t1.field1 = "Foo"
+
+    t1.field1 = "foo"
+    assert t1.field1 == "foo"
+    assert t1.field2 == 10
+    assert t1.field3
+
+
+def test_list_validator():
+    class TestSimple(Docma):
+        """
+        field1: list(str) ([a-z]+)
+        field2: list(int) [[10]]
+        field3: list(boolean)
+        """
+        pass
+
+    t1 = TestSimple()
+    t1.field3 = [True, True]
+
+    with raises(AttributeError):
+        t1.field1 = ["Foo"]
+
+    t1.field1 = ["foo"]
+    assert t1.field1 == ["foo"]
+    assert t1.field2 == [10]
+    assert all(t1.field3)
+
+
+def test_custom_types():
+    class TestSimple(Docma):
+        """
+        field1: str ([a-z]+)
+        field2: int [10]
+        field3: boolean
+        """
+        pass
+
+    class TestSimple2(Docma):
+        """
+        field1: TestSimple
+        """
+        pass
+
+    t2 = TestSimple2.from_dict({
+        "field1": {
+            "field1": "foo",
+            "field2": 12,
+            "field3": True
+        }
+    })
+
+    assert t2.field1.field2 == 12
