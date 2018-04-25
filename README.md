@@ -1,6 +1,9 @@
 ## Docma
 Describing schemas in docstrings
 
+## Status
+[![Build Status](https://travis-ci.org/pydocma/docma.svg?branch=master)](https://travis-ci.org/pydocma/docma)
+
 # Basic Example
 ```
 class Person(Docma):
