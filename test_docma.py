@@ -52,7 +52,7 @@ def test_from_dict():
     assert t1.field3
 
 
-def test_default():
+def disabled_test_default():
     class TestSimple(Docma):
         """
         field1: str
@@ -71,7 +71,7 @@ def test_default():
     assert t1.field3
 
 
-def test_custom_validator():
+def disabled_test_custom_validator():
     class TestSimple(Docma):
         """
         field1: str
@@ -94,7 +94,7 @@ def test_custom_validator():
     assert t1.field3
 
 
-def test_list_validator():
+def disabled_test_list_validator():
     class TestSimple(Docma):
         """
         field1: list(str)
@@ -117,7 +117,7 @@ def test_list_validator():
     assert all(t1.field3)
 
 
-def test_custom_types():
+def disabled_test_custom_types():
     class TestSimple(Docma):
         """
         field1: str
