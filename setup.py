@@ -29,7 +29,7 @@ setup(
     keywords='python schema docstring',
     url='http://github.com/pydocma/docma',
     py_modules=['docma'],
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Topic :: Schema',
