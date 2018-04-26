@@ -6,6 +6,7 @@
 Basic Example
 ===================================================
 .. code:: python
+
     class Person(Docma):
         """
         name: str
