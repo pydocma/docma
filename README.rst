@@ -4,28 +4,28 @@
     :target: https://travis-ci.org/pydocma/docma
 
 Basic Example
-
+===================================================
 .. code:: python
-class Person(Docma):
-    """
-    name: str
-    age: int
-    is_happy: boolean
-    """
-    
-    def do_stuff():
-        ...
+    class Person(Docma):
+        """
+        name: str
+        age: int
+        is_happy: boolean
+        """
 
->>> me = Person()
->>> me.name = "Kimba Futu"
->>> me.age = "20"
-Raise: ValueError ('age' must be a valid int)
->>> me.age = 20
->>> print(me.is_happy)
-False
+        def do_stuff():
+            ...
 
->>> you = Person.from_dict({'name': 'Owasu Pokuti', 'age': '67', 'is_happy': True})
-Raise: ValueError('age' msut be a valid int)
->>> you = Person.from_dict({'name': 'Owasu Pokuti', 'age': 67, 'is_happy': True})
->>>
+    >>> me = Person()
+    >>> me.name = "Kimba Futu"
+    >>> me.age = "20"
+    Raise: ValueError ('age' must be a valid int)
+    >>> me.age = 20
+    >>> print(me.is_happy)
+    False
+
+    >>> you = Person.from_dict({'name': 'Owasu Pokuti', 'age': '67', 'is_happy': True})
+    Raise: ValueError('age' msut be a valid int)
+    >>> you = Person.from_dict({'name': 'Owasu Pokuti', 'age': 67, 'is_happy': True})
+    >>>
 
