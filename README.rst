@@ -1,11 +1,11 @@
-## Docma
-Describing schemas in docstrings
+``Docma`` Describing schemas in docstrings
 
-## Status
-[![Build Status](https://travis-ci.org/pydocma/docma.svg?branch=master)](https://travis-ci.org/pydocma/docma)
+.. image:: https://travis-ci.org/pydocma/docma.svg?branch=master
+    :target: https://travis-ci.org/pydocma/docma
 
-# Basic Example
-```
+Basic Example
+
+.. code:: python
 class Person(Docma):
     """
     name: str
@@ -28,4 +28,4 @@ False
 Raise: ValueError('age' msut be a valid int)
 >>> you = Person.from_dict({'name': 'Owasu Pokuti', 'age': 67, 'is_happy': True})
 >>>
-```
+
